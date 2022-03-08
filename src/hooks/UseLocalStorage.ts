@@ -12,9 +12,9 @@ export default function <T>(
 
   const [value, setValue] = useState<T>(() => {
     let parsedValue = defaultValue;
-    if (hexKey?.length > 0) {
+    if (Boolean(hexKey?.length)) {
       const rawValue = localStorage.getItem(hexKey);
-      if (rawValue && rawValue.length > 0) {
+      if (rawValue && Boolean(rawValue?.length)) {
         try {
           parsedValue = JSON.parse(decode(rawValue));
         } catch (err) {

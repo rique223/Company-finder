@@ -24,7 +24,7 @@ export const EmpresaProvider: React.FC = ({ children }) => {
 	const buscarEmpresas = async (cnpj: string) => {
 		setLoading(true);
 		try {
-			jsonp(baseURLCNPJ + `/cnpj/${cnpj}`, undefined, (err, data) => {
+			jsonp(baseURLCNPJ + `/cnpj/${cnpj}`, undefined, (_err, data) => {
 				setEmpresas((old) => [...old, data]);
 				return;
 			});

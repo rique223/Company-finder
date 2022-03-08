@@ -1,2 +1,0 @@
-export const baseURLGoogle =
-	"https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?address=";

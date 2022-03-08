@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Paper } from "@material-ui/core";
 import EmpresaContext from "../contexts/EmpresaContext";
-import apiGoogle from "../utils/apiGoogle";
+import apiBackEnd from "../utils/apiBackEnd";
 import NavBar from "../components/NavBar";
 import "./scss/Maps.scss";
 
@@ -11,10 +11,11 @@ const Maps = () => {
 	const [coords, setCoords] = useState({ lat: 0, lng: 0 });
 
 	useEffect(() => {
-		const endereco = `${selecionada.logradouro}+${selecionada.bairro}+${selecionada.municipio}+${selecionada.numero}+&key=AIzaSyDSviCWFpzFt7LiZe9S19NDLW5V7PGFqS4`;
+		const endereco = `${selecionada.logradouro}+${selecionada.bairro}+${selecionada.municipio}+${selecionada.numero}`;
 		setLoading(true);
 		async function getEndereco() {
-			const { data } = await apiGoogle.get(endereco);
+			const { data } = await apiBackEnd.get(`?address=${endereco}`);
+			console.log(data);
 			setCoords({
 				lat: data.results[0].geometry.location.lat,
 				lng: data.results[0].geometry.location.lng,
@@ -22,7 +23,7 @@ const Maps = () => {
 			setLoading(false);
 		}
 		getEndereco();
-	}, []);
+	}, [selecionada.bairro, selecionada.logradouro, selecionada.municipio, selecionada.numero, setLoading]);
 
 	const containerStyle = {
 		width: "100%",

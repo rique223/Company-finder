@@ -1,9 +1,9 @@
 const encode = (value: string) => {
-  return btoa(unescape(encodeURIComponent(value)));
+  return btoa(encodeURIComponent(value));
 };
 
 const decode = (value: string) => {
-  return decodeURIComponent(escape(atob(value)));
+  return decodeURIComponent(atob(value));
 };
 
 export default { encode, decode };
