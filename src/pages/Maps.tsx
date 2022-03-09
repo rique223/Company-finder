@@ -15,7 +15,6 @@ const Maps = () => {
 		setLoading(true);
 		async function getEndereco() {
 			const { data } = await apiBackEnd.get(`?address=${endereco}`);
-			console.log(data);
 			setCoords({
 				lat: data.results[0].geometry.location.lat,
 				lng: data.results[0].geometry.location.lng,

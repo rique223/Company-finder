@@ -119,12 +119,9 @@ const HomePage = () => {
         </div>
       )}
 
-
-      {empresas.length >= 4 && (
         <Toolbar>
           <Button className="excluir" title='Limpar empresas' onClick={() => setEmpresas([])}><FontAwesomeIcon icon={faBan} /></Button>
         </Toolbar>
-      )}
     </section>
   )
 }
