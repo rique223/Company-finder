@@ -1,19 +1,32 @@
 @import "src/_variables";
 
 .searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #fff;
-  height: 33vh;
+  height: 31%;
 
   h1 {
     font-size: $titulo-regular;
     font-weight: 400;
     color: $primary-color;
-    transform: translate(-51%, -114%);
-    top: 50%;
-    left: 50%;
-    position: sticky;
-    margin-bottom: 4vh;
+    margin-block: 20px;
   }
+
+  .toolbar {
+    padding-block: 24px;
+    flex-direction: column;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 69%;
+  background: $gradient !important
 }
 
 .MuiPaper-root.MuiPaper-outlined.MuiPaper-rounded {
@@ -61,19 +74,13 @@
 }
 
 .slick-prev {
-  left: -8%;
+  width: 20px !important;
   font-size: $titulo-regular!important;
 }
 
 .slick-next {
-  right: -8%;
+  width: 20px !important;
   font-size: $titulo-regular!important;
-}
-
-.slick-slider {
-  margin-top: 10vh;
-  margin-right: 9%;
-  margin-left: 9.28%;
 }
 
 .slick-slide {
@@ -85,7 +92,6 @@
 .MuiPaper-rounded {
   font-size: 16px;
   height: 304px;
-  width: 329px!important;
 }
 
 .excluir {
@@ -120,14 +126,9 @@
   }
 }
 
-.MuiToolbar-root {
-  flex-direction: column;
-}
-
 .first {
-  position: absolute;
-  top: 61%;
-  left: 43%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -138,58 +139,32 @@
   }
 }
 
-@media (max-width: 1440px) and (min-width: 1280px){
-  .searchBar {
-  
-    h1 {
-      transform: translate(-34%,-23%);
+.container-home {
+  height: 100%;
 
-    }
+  .carousel {
+    width: 90%;
+    margin-inline: auto;
+    padding-block: 24px;
   }
 
-  .slick-slider {
-    margin-top: 10vh;
-    margin-right: 10%;
-    margin-left: 10%;
-  }
-  
-  .searchLayout {
-    position: absolute;
-    top: 90%;
-    left: 29%;
+  .button-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
   }
 }
 
-@media (max-width: 1280px) and (min-width: 769px) {
-  .slick-slider {
-    margin-top: 10vh;
-    margin-right: 5%;
-    margin-left: 5%;
-  }
-
-  .slick-next {
-    right: -5%;
-  }
-
-  .slick-prev {
-    left: -5%;
-  }
-
+@media (min-width: 768px) and (max-width: 900px) {
   .searchBar {
-  
     h1 {
-      transform: translate(-25%,-20%);
+      font-size: 50px;
     }
-  }
-
-  .searchLayout {
-    position: absolute;
-    top: 90%;
-    left: 24%;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .container-home {
     
     .slick-slider {
@@ -213,14 +188,8 @@
   }
 
   .searchBar {
-    height: 30vh;
-
     h1 {
-      font-size: 27px;
-      transform: translate(0%, 0%);
-      top: 0%;
-      left: 0%;
-      margin-bottom: 2vh;
+      font-size: 26px;
     }
   }
 

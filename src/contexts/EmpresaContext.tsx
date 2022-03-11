@@ -29,7 +29,7 @@ export const EmpresaProvider: React.FC = ({ children }) => {
 				return;
 			});
 		} catch (err) {
-			console.error("erro ao buscar empresas", { err });
+			console.error("erro ao buscar empresas", err);
 			setOpenAlert(true);
 			setMessageError("Esse CNPJ não existe");
 			throw err;

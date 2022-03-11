@@ -36,7 +36,7 @@ const TitleBar = () => {
 
   return (
     <section className="searchBar">
-      <Toolbar>
+      <Toolbar className="toolbar">
         <h1><FontAwesomeIcon icon={faBuilding} />  Localizador de Empresas</h1>
 
         <div className="searchLayout">

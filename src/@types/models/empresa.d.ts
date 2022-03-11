@@ -14,6 +14,39 @@ namespace Models {
 
   interface Location {
     lat: number;
-    lng: number
+    lng: number;
   }
+
+  interface Settings {
+    dots: boolean;
+    infinite: boolean;
+    speed: number;
+    slidesToShow: number;
+    slidesToScroll: number;
+    initialSlide: number;
+    responsive: Responsive[];
+    nextArrow: JSX.Element;
+    prevArrow: JSX.Element;
+  }
+  
+  interface Responsive {
+    breakpoint: number;
+    settings: Partial<Settings>;
+  }
+  
+  interface Settings {
+    slidesToShow: number;
+    slidesToScroll: number;
+    infinite?: boolean;
+    dots?: boolean;
+    arrows?: boolean;
+    initialSlide?: number;
+  }
+
+  type CompanyCarrouselProps = {
+    empresas: Models.Empresa[];
+    settings: Models.Settings;
+    coordenadas: (selec: Models.Empresa) => void;
+  }
+  
 }
