@@ -22,10 +22,10 @@ O cliente de requisições HTTP axios foi utilizado como alternativa à bibliote
 O micro framework open-source Spring boot, que serve como um facilitador para criação de aplicações no ecossistema Java, foi utilizado para criar um proxy-reverso, escrito em kotlin, para a API de geocoding do google para resolver problemas de CORS, já que essa API não permite o uso de JSONP, e guardar os segredos necessários para realizar requisições nessa API de forma mais segura por meio de variáveis de ambiente. Esse back-end, basicamente, recebe o endereço recuperado da API receitaws.com.br por meio de uma requisição de GET do axios, faz outra requisiçào de GET para a API de geocoding do google e devolve os dados para o front-end, utilizando-se das configuradores compactas de cross-origin que o spring boot disponibiliza.
 
 ### Firebase Hosting e Heroku
-Para a hospedagem do front-end desse projeto foi utilizado o sistema de hosting da Firebase o que tornou prático e rápido a configuração e deploy do projeto em uma plataforma pública web. 
-Link de acesso ao front-end hospedado: https://localizador-de-empresas-cc822.web.app/home
-Além disso, para a hospedagem do proxy-reverso citado anteriormente, foi utilizado o sistema de deployment de aplicações spring boot da Heroku o que tornou prático e rápido o deploy e uso desse back-end em uma plataforma web pública.
-Link de acesso ao back-end hospedado: https://back-end-company-finder.herokuapp.com
+Para a hospedagem do front-end desse projeto foi utilizado o sistema de hosting da Firebase o que tornou prático e rápido a configuração e deploy do projeto em uma plataforma pública web.  
+Link de acesso ao front-end hospedado: https://localizador-de-empresas-cc822.web.app/home  
+Além disso, para a hospedagem do proxy-reverso citado anteriormente, foi utilizado o sistema de deployment de aplicações spring boot da Heroku o que tornou prático e rápido o deploy e uso desse back-end em uma plataforma web pública.  
+Link de acesso ao back-end hospedado: https://back-end-company-finder.herokuapp.com  
 
 ## Estrutura de pastas do Localizador de Empresas
 + Conexa-Labs
@@ -89,9 +89,9 @@ The open-source micro-framework, Spring boot, which serves as a facilitator for 
 
 ### Firebase Hosting and Heroku
 For hosting the front-end of this project, the Firebase hosting system was used, which made it practical and fast to configure and deploy the project on a public web platform. 
-Hosted front-end access link: https://localizador-de-empresas-cc822.web.app/home 
-In addition, for hosting the aforementioned reverse-proxy, Heroku's spring boot application deployment system was used, which made deploying and using this back-end on a public web platform practical and fast. 
-Hosted backend access link: https://back-end-company-finder.herokuapp.com 
+Hosted front-end access link: https://localizador-de-empresas-cc822.web.app/home   
+In addition, for hosting the aforementioned reverse-proxy, Heroku's spring boot application deployment system was used, which made deploying and using this back-end on a public web platform practical and fast.  
+Hosted backend access link: https://back-end-company-finder.herokuapp.com  
 
 ## How to run the project
 1. Clone or Download this repository;
