@@ -13,7 +13,7 @@ import "react-multi-carousel/lib/styles.css";
 import CompanyCarrousel from "../components/CompanyCarrousel";
 
 const HomePage = () => {
-  const { empresas, setEmpresas, setSelecionada, setOpenAlert } = useContext(EmpresaContext);
+  const { empresas, setEmpresas, setSelecionada, setOpenAlert, setMessageError } = useContext(EmpresaContext);
   let settings = {
     dots: false,
     infinite: empresas.length >= 4,
@@ -74,8 +74,16 @@ const HomePage = () => {
   );
 
   const coordenadas = (selec: Models.Empresa) => {
-    setSelecionada(selec);
-    navigate(`/maps`);
+    setOpenAlert(false);
+    setMessageError("");
+
+    if(selec.bairro && selec.logradouro && selec.municipio && selec.numero) {
+      setSelecionada(selec);
+      navigate(`/maps`);
+    } else {
+      setMessageError("Essa empresa não tem um endereço cadastrado!");
+      setOpenAlert(true);
+    }
   };
 
   function SampleNextArrow(props: {
