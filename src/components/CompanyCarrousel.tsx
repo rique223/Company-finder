@@ -9,9 +9,11 @@ const CompanyCarrousel = ({
 }: Models.CompanyCarrouselProps) => (
     <div className="carousel">
       <Slider {...settings}>
+        {console.log(empresas)}
         {empresas &&
           empresas.map((empresa) => (
-            <Paper
+            empresa && (
+              <Paper
               variant="outlined"
               elevation={3}
               key={empresa.cnpj}
@@ -28,14 +30,15 @@ const CompanyCarrousel = ({
               </section>
 
               <section className="endereco">
-                <h2>
+                {empresa.NoAddressMessage ? <h2 style={{ color: "#B68D00" }}>{empresa.NoAddressMessage}</h2> : <h2>
                   {empresa.logradouro.toLowerCase()}{" "}
                   {empresa.numero.toLowerCase()} {empresa.bairro.toLowerCase()}{" "}
                   {empresa.municipio.toLowerCase()}
-                </h2>
+                </h2>}
                 <p>Endereço</p>
               </section>
             </Paper>
+            )
           ))}
       </Slider>
     </div>

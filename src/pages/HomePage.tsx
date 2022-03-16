@@ -81,7 +81,7 @@ const HomePage = () => {
       setSelecionada(selec);
       navigate(`/maps`);
     } else {
-      setMessageError("Essa empresa não tem um endereço cadastrado!");
+      setMessageError(selec.NoAddressMessage ? selec.NoAddressMessage : "");
       setOpenAlert(true);
     }
   };

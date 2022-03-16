@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Paper } from "@material-ui/core";
 import EmpresaContext from "../contexts/EmpresaContext";
-import apiBackEnd from "../utils/apiBackEnd";
+import apiAddressGeocoding from "../utils/apiAddressGeocoding";
 import NavBar from "../components/NavBar";
 import "./scss/Maps.scss";
 
@@ -14,7 +14,7 @@ const Maps = () => {
 		const endereco = `${selecionada.logradouro}+${selecionada.bairro}+${selecionada.municipio}+${selecionada.numero}`;
 		setLoading(true);
 		async function getEndereco() {
-			const { data } = await apiBackEnd.get(`?address=${endereco}`);
+			const { data } = await apiAddressGeocoding.get(`?address=${endereco}`);
 			setCoords({
 				lat: data.results[0].geometry.location.lat,
 				lng: data.results[0].geometry.location.lng,

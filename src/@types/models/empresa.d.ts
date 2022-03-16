@@ -10,6 +10,7 @@ namespace Models {
     bairro: string;
     municipio: string;
     location: Location;
+    NoAddressMessage?: string;
   }
 
   interface Location {
