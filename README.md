@@ -1,3 +1,38 @@
+## What is the company finder?
+The company finder is an application made using the React.js framework, the Material UI library, the open-source spring boot micro-framework, and the Firebase hosting system. The app works as follows, a request is made, via jsonp, using the provided cnpj(National register for juridic people) to the API receitaws.com.br that returns the corporate name, address and, cnpj of the company to which the provided cnpj belongs. The aforementioned address is then sent to a [reverse-proxy written in spring boot, with kotlin](https://github.com/rique223/back-end-company-finder), which in turn makes a call to the geocoding(the act of transforming an address string into a pair of coordinates) google API and retrieves a pair of coordinates which, after clicking on one of the rendered cards, is sent to the maps API, also from Google, (managed by the package @react-google-maps/api) and a page with a map is rendered with the center of the map set in the retrieved coordinate pair and with a google maps marker at the exact location of those coordinates plus a card, in the upper left corner, with the data of the company whose location is being shown. 
+
+## Tecnologies used in the project
+### React+Typescript
+The company finder uses React.js with Typescript. Therefore, it uses type declaration files, identified by the ``` .d.ts ``` file extension, and serves as a "guide" for Typescript to know what kind of custom data it is dealing with and thus allowing bugs to be identified before the application is sent to production in addition to making it easier to work with this data. 
+
+### Material UI Library and Sass Preprocessor
+The company finder uses the material ui library in this project. But, to achieve the expected result and make the application as true as possible to the Style Guide, the CSS Sass pre-processor was used, which makes the stylesheet files way more organized, readable, and offers powerful styling and organization of the CSS code. 
+
+### Custom react hooks and encryption
+In addition, the company finder uses a hexadecimal encryption method in the strings that are stored locally, made with custom react hooks, to make the local storage function more robust and secure, in the browser's local storage system, to prevent the stored data can be easily accessed through the browser's dev tools, thus preventing possible leaks of sensitive data. 
+
+### React contexts
+React's context system was also used to make vital data available to the entire project and thus facilitate data communication between the application's components, which makes rendering and handling data much easier and more practical.
+
+### Axios+REST+JSONP
+The Axios HTTP request client was used as an alternative to the standard Javascript Fetch library since it was, at the time of creating this project, more practical and robust in terms of performing and handling RESTful requests. In addition, the method of sending data in JSON format, JSONP, was used to avoid CORS problems when sending requests to the API receitaws.com.br. 
+
+### Spring boot+Kotlin
+The open-source micro-framework, Spring boot, which serves as a facilitator for creating applications in the Java ecosystem, was used to create a reverse-proxy, written in kotlin, for the google geocoding API to solve CORS problems, since this API does not allow the use of JSONP, and to store the secrets necessary to make requests in this API more securely through environment variables. This back-end receives the address retrieved from the API recipews.com.br through a GET request from Axios, makes another GET request to the Google geocoding API, and returns the data to the front-end, using the compact cross-origin configurators that spring boot provides. 
+
+### Firebase Hosting and Heroku
+For hosting the front-end of this project, the Firebase hosting system was used, which made it practical and fast to configure and deploy the project on a public web platform. 
+Hosted front-end access link: https://localizador-de-empresas-cc822.web.app/home   
+In addition, for hosting the aforementioned reverse-proxy, Heroku's spring boot application deployment system was used, which made deploying and using this back-end on a public web platform practical and fast.  
+Hosted backend access link: https://back-end-company-finder.herokuapp.com  
+
+## How to run the project
+1. Clone or Download this repository;
+2. Open your favorite CLI
+3. Execute the command ``` yarn ``` or ``` npm i ``` ( yarn is faster ;) )
+4. Execute the command ``` yarn start ``` or ``` npm start ``` (If you choose npm in the last step)
+
+#[PT]
 # Localizador de Empresas
 ## O que é o Localizador de Empresas?
 O localizador de empresas é uma aplicação feita utilizando o framework React.js, a Material UI library, o micro framework open-source spring boot e o sistema de hosting do Firebase. É realizada uma requisição, via jsonp, a partir do cnpj fornecido, para a api receitaws.com.br que retorna a razão social, o endereço e o cnpj da empresa a qual pertence o cnpj fornecido. O endereço citado anteriormente então é enviado para um [proxy-reverso escrito em spring boot, com kotlin](https://github.com/rique223/back-end-company-finder), que por sua vez faz uma chamada à API de geocoding(o ato de transformar uma string de endereço em um par de coordenadas) da google e recupera um par de coordenadas que, quando clica-se em um dos cartões renderizados com os dados da empresa, é enviado para a api de mapas, também da Google, (gerenciada pelo package @react-google-maps/api) e uma página com um mapa é renderizada com o centro do mapa no par de coordenadas recuperado e com um marcador do google maps no local exato dessas coordenadas além de um cartão, no canto superior esquerdo, com os dados da empresa cuja localização está sendo mostrada.
@@ -63,38 +98,3 @@ Link de acesso ao back-end hospedado: https://back-end-company-finder.herokuapp.
 2. Abra seu CLI favorito
 3. Execute o comando ``` yarn ``` ou ``` npm i ```(yarn é mais rápido ;) )
 4. Execute o comando ``` yarn start ``` ou ```npm run start```, caso tenha utilizado npm no passo anterior
-
-# [EN]
-## What is the company finder?
-The company finder is an application made using the React.js framework, the Material UI library, the open-source spring boot micro-framework, and the Firebase hosting system. The app works as follows, a request is made, via jsonp, using the provided cnpj(National register for juridic people) to the API receitaws.com.br that returns the corporate name, address and, cnpj of the company to which the provided cnpj belongs. The aforementioned address is then sent to a [reverse-proxy written in spring boot, with kotlin](https://github.com/rique223/back-end-company-finder), which in turn makes a call to the geocoding(the act of transforming an address string into a pair of coordinates) google API and retrieves a pair of coordinates which, after clicking on one of the rendered cards, is sent to the maps API, also from Google, (managed by the package @react-google-maps/api) and a page with a map is rendered with the center of the map set in the retrieved coordinate pair and with a google maps marker at the exact location of those coordinates plus a card, in the upper left corner, with the data of the company whose location is being shown. 
-
-## Tecnologies used in the project
-### React+Typescript
-The company finder uses React.js with Typescript. Therefore, it uses type declaration files, identified by the ``` .d.ts ``` file extension, and serves as a "guide" for Typescript to know what kind of custom data it is dealing with and thus allowing bugs to be identified before the application is sent to production in addition to making it easier to work with this data. 
-
-### Material UI Library and Sass Preprocessor
-The company finder uses the material ui library in this project. But, to achieve the expected result and make the application as true as possible to the Style Guide, the CSS Sass pre-processor was used, which makes the stylesheet files way more organized, readable, and offers powerful styling and organization of the CSS code. 
-
-### Custom react hooks and encryption
-In addition, the company finder uses a hexadecimal encryption method in the strings that are stored locally, made with custom react hooks, to make the local storage function more robust and secure, in the browser's local storage system, to prevent the stored data can be easily accessed through the browser's dev tools, thus preventing possible leaks of sensitive data. 
-
-### React contexts
-React's context system was also used to make vital data available to the entire project and thus facilitate data communication between the application's components, which makes rendering and handling data much easier and more practical.
-
-### Axios+REST+JSONP
-The Axios HTTP request client was used as an alternative to the standard Javascript Fetch library since it was, at the time of creating this project, more practical and robust in terms of performing and handling RESTful requests. In addition, the method of sending data in JSON format, JSONP, was used to avoid CORS problems when sending requests to the API receitaws.com.br. 
-
-### Spring boot+Kotlin
-The open-source micro-framework, Spring boot, which serves as a facilitator for creating applications in the Java ecosystem, was used to create a reverse-proxy, written in kotlin, for the google geocoding API to solve CORS problems, since this API does not allow the use of JSONP, and to store the secrets necessary to make requests in this API more securely through environment variables. This back-end receives the address retrieved from the API recipews.com.br through a GET request from Axios, makes another GET request to the Google geocoding API, and returns the data to the front-end, using the compact cross-origin configurators that spring boot provides. 
-
-### Firebase Hosting and Heroku
-For hosting the front-end of this project, the Firebase hosting system was used, which made it practical and fast to configure and deploy the project on a public web platform. 
-Hosted front-end access link: https://localizador-de-empresas-cc822.web.app/home   
-In addition, for hosting the aforementioned reverse-proxy, Heroku's spring boot application deployment system was used, which made deploying and using this back-end on a public web platform practical and fast.  
-Hosted backend access link: https://back-end-company-finder.herokuapp.com  
-
-## How to run the project
-1. Clone or Download this repository;
-2. Open your favorite CLI
-3. Execute the command ``` yarn ``` or ``` npm i ``` ( yarn is faster ;) )
-4. Execute the command ``` yarn start ``` or ``` npm start ``` (If you choose npm in the last step)
